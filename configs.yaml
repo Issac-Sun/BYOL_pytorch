@@ -1,0 +1,34 @@
+#这里是配置文件
+
+# 1. 大小写敏感
+# 2. 使用缩进表示层级关系
+# 3. 缩进时不允许使用Tab，只允许使用空格
+# 4. 缩进的空格数目不重要，只要相同层级的元素左对齐即可
+# 5. # 表示注释，从它开始到行尾都被忽略
+
+network:
+  name: resnet18
+
+  # Specify a folder containing a pre-trained model to fine-tune. If training from scratch, pass None.
+  fine_tune_from: 'resnet-18_40-epochs'
+
+  projection_head:
+    mlp_hidden_size: 512
+    projection_size: 128
+
+data_transforms:
+  s: 1
+  input_shape: (32,32,3)
+
+trainer:
+  batch_size: 64
+  m: 0.996 # momentum update
+  checkpoint_interval: 5000
+  max_epochs: 40
+  num_workers: 4
+
+optimizer:
+  params:
+    lr: 0.03
+    momentum: 0.9
+    weight_decay: 0.0004
