@@ -1,4 +1,4 @@
-# BYOL Implementation on CIFAR10
+# BYOL Implementation on CIFAR10/STL10
 
 ## Overview
 
